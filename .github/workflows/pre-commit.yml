@@ -23,10 +23,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v3
-            
+      - name: Setup Python
+        uses: actions/setup-python@v3      
       - name: Setup Nim environment
-        uses: jiro4989/setup-nim-action@v1.1.4
-              
+        uses: iffy/install-nim@v5            
       - name: Run pre-commit hooks
         uses: pre-commit/action@v3.0.0
                         
