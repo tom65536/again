@@ -1,0 +1,23 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    - id: check-added-large-files
+    - id: check-json
+    - id: check-yaml
+    - id: check-toml
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.7.3
+    hooks:
+      - id: editorconfig-checker
+  - repo: https://github.com/jackdewinter/pymarkdown
+    rev: v0.9.13.4
+    hooks:
+      - id: pymarkdown
+  - repo: https://github.com/juancarlospaco/pre-commit-nim
+    rev: 'f3e8249a482c72d02654e2babaa733782bca6175'
+    hooks:
+      - id: nimble-check
+      - id: nim-check
