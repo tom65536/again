@@ -1,3 +1,5 @@
+
+
 # AGAIN - Algebra and Group theory in Nim
 # Copyright (C) 2023  Thomas Reiter
 #
@@ -13,17 +15,34 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# This is just an example to get you started. Users of your library will
-
-
-# import this file by writing ``import again/submodule``. Feel free to rename or
-# remove this file altogether. You may create additional modules alongside
-# this file as required.
+## Definition of algebraic structures.
+##
+## The concepts defining algebraic steuctures are
+## defined ver similar to the
+## [emmy](https://github.com/andreaferretti/emmy)
+## package.
 
 type
-  Submodule* = object
-    name*: string
+  OperatorFlag* {.size: sizeof(cint).} = enum
+    is_commutative
+    is_associative
+    is_divisible
+    is_medial
+    has_identity
 
-proc initSubmodule*(): Submodule =
-  ## Initialises a new ``Submodule`` object.
-  Submodule(name: "Anonymous")
+  OperatorFlags* = set[OperatorFlag]
+
+  AdditiveMagma* = concept x, y, type T
+    x + y is T
+    plus_properties(T) is OperatorFlags
+
+  MultiplicativeMagma* = concept x, y, type T
+    x * y is T
+    mul_properties(T) is OperatorFlags
+
+proc plus_properties*(x: typedesc[int]): OperatorFlags = {
+  is_commutative,
+  is_associative,
+  is_divisible,
+  has_identity
+}
