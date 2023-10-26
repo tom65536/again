@@ -1,3 +1,18 @@
+# AGAIN - Algebra and Group theory in Nim
+# Copyright (C) 2023  Thomas Reiter
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
@@ -21,3 +36,13 @@ repos:
     hooks:
       - id: nimble-check
       - id: nim-check
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.4
+    hooks:
+      - id: insert-license
+        files: \.(nim|nims|yml|yaml)$
+        args:
+          - --license-filepath
+          - src/license_header.txt
+          - --use-current-year
+          - --no-extra-eol
