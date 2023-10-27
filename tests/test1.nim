@@ -14,16 +14,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
-# This is just an example to get you started. You may wish to put all of your
-# tests into a single file, or separate them into multiple `test1`, `test2`
-# etc. files (better names are recommended, just make sure the name starts with
-# the letter 't').
-#
-# To run these tests, simply execute `nimble test`.
-
 import unittest
+import again/structure
 
-import again
-test "can add":
-  check add(5, 5) == 10
+test "properties for int":
+  check int is AdditiveAbelianGroup
+  check int is MultiplicativeCommutativeMonoid
+  check zero(int) == 0
+  check identity(int) == 1

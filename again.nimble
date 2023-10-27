@@ -2,7 +2,7 @@
 
 version       = "0.1.0"
 author        = "tom65536"
-description   = "Algebra and Group theory In Nim"
+description   = "Algebra and Group theory Algorithms In Nim"
 license       = "GPL-3.0-or-later"
 srcDir        = "src"
 
