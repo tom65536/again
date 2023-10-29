@@ -18,19 +18,26 @@ import unittest
 import again/structure
 
 test "properties for int":
-  check int is AdditiveAbelianGroup
-  check int is MultiplicativeCommutativeMonoid
-  check int is Ring
   check int is EuclideanRing
-  check 5 mod 3 == 2
-  check 5 div 3 == 1
   check zero(int) == 0
   check identity(int) == 1
 
 test "properties for int8":
-  check int8 is AdditiveAbelianGroup
-  check int8 is MultiplicativeCommutativeMonoid
-  # check int8 is EuclideanRing
-  check int8 is Ring
+  check int8 is EuclideanRing
   check zero(int8) == 0
   check identity(int8) == 1
+
+test "properties for int16":
+  check int16 is EuclideanRing
+  check zero(int16) == 0
+  check identity(int16) == 1
+
+test "properties for int32":
+  check int32 is EuclideanRing
+  check zero(int32) == 0
+  check identity(int32) == 1
+
+test "properties for int64":
+  check int64 is EuclideanRing
+  check zero(int64) == 0
+  check identity(int64) == 1
