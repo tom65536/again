@@ -178,26 +178,62 @@ type
     T is MultiplicativeAbelianGroup
 
   EuclideanRing* = concept x, y, type T
-    T is Ring
+    T is AdditiveAbelianGroup
+    T is MultiplicativeMonoid
     x div y is T
     x mod y is T
 
 # Implementations for primitive types
+const
+  int_plus_properties: OperatorFlags = {
+    is_commutative,
+    is_associative,
+    is_divisible,
+    has_identity
+  }
 
-proc plus_properties*(x: typedesc[int]): OperatorFlags = {
-  is_commutative,
-  is_associative,
-  is_divisible,
-  has_identity
-}
+  int_mul_properties: OperatorFlags = {
+    is_commutative,
+    is_associative,
+    has_identity
+  }
 
-proc mul_properties*(x: typedesc[int]): OperatorFlags = {
-  is_commutative,
-  is_associative,
-  has_identity
-}
-
+proc plus_properties*(x: typedesc[int]): OperatorFlags =
+  int_plus_properties
+proc mul_properties*(x: typedesc[int]): OperatorFlags =
+  int_mul_properties
 proc `~`*(x: int, y: int): int = y - x
-
 proc zero*(x: typedesc[int]): int = 0
 proc identity*(x: typedesc[int]): int = 1
+
+proc plus_properties*(x: typedesc[int8]): OperatorFlags =
+  int_plus_properties
+proc mul_properties*(x: typedesc[int8]): OperatorFlags =
+  int_mul_properties
+proc `~`*(x: int8, y: int8): int8 = y - x
+proc zero*(x: typedesc[int8]): int8 = 0
+proc identity*(x: typedesc[int8]): int8 = 1
+
+proc plus_properties*(x: typedesc[int16]): OperatorFlags =
+  int_plus_properties
+proc mul_properties*(x: typedesc[int16]): OperatorFlags =
+  int_mul_properties
+proc `~`*(x: int16, y: int16): int16 = y - x
+proc zero*(x: typedesc[int16]): int16 = 0
+proc identity*(x: typedesc[int16]): int16 = 1
+
+proc plus_properties*(x: typedesc[int32]): OperatorFlags =
+  int_plus_properties
+proc mul_properties*(x: typedesc[int32]): OperatorFlags =
+  int_mul_properties
+proc `~`*(x: int32, y: int32): int32 = y - x
+proc zero*(x: typedesc[int32]): int32 = 0
+proc identity*(x: typedesc[int32]): int32 = 1
+
+proc plus_properties*(x: typedesc[int64]): OperatorFlags =
+  int_plus_properties
+proc mul_properties*(x: typedesc[int64]): OperatorFlags =
+  int_mul_properties
+proc `~`*(x: int64, y: int64): int64 = y - x
+proc zero*(x: typedesc[int64]): int64 = 0
+proc identity*(x: typedesc[int64]): int64 = 1

@@ -20,5 +20,17 @@ import again/structure
 test "properties for int":
   check int is AdditiveAbelianGroup
   check int is MultiplicativeCommutativeMonoid
+  check int is Ring
+  check int is EuclideanRing
+  check 5 mod 3 == 2
+  check 5 div 3 == 1
   check zero(int) == 0
   check identity(int) == 1
+
+test "properties for int8":
+  check int8 is AdditiveAbelianGroup
+  check int8 is MultiplicativeCommutativeMonoid
+  # check int8 is EuclideanRing
+  check int8 is Ring
+  check zero(int8) == 0
+  check identity(int8) == 1
