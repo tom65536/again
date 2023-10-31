@@ -13,12 +13,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-## AGAIN - Algebra and Group theory Algorithms In Nim
-import again/[
-  std_float,
-  std_int,
-  storage,
-  structure
-]
 
-export std_float, std_int, structure, storage
+import unittest
+import again
+
+test "properties for flot":
+  check float is Field
+  check zero(float) == 0
+  check identity(float) == 1

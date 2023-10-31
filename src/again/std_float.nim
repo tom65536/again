@@ -1,3 +1,4 @@
+
 # AGAIN - Algebra and Group theory in Nim
 # Copyright (C) 2023  Thomas Reiter
 #
@@ -13,12 +14,31 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-## AGAIN - Algebra and Group theory Algorithms In Nim
-import again/[
-  std_float,
-  std_int,
-  storage,
-  structure
-]
+## Implementations for standard types.
 
-export std_float, std_int, structure, storage
+import ./structure
+
+const
+  float_plus_properties: OperatorFlags = {
+    is_commutative,
+    is_associative,
+    is_divisible,
+    has_identity
+  }
+
+  float_mul_properties: OperatorFlags = {
+    is_commutative,
+    is_associative,
+    is_divisible,
+    has_identity
+  }
+
+proc plus_properties*(x: typedesc[float]): OperatorFlags =
+  float_plus_properties
+proc mul_properties*(x: typedesc[float]): OperatorFlags =
+  float_mul_properties
+proc `~`*(x: float, y: float): float = y - x
+proc `\`*(x: float, y: float): float = y / x
+proc inv*(x: float): float = 1 / x
+proc zero*(x: typedesc[float]): float = 0
+proc identity*(x: typedesc[float]): float = 1
