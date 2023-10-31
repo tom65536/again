@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
-import again/structure
+import again
 
 test "properties for int":
   check int is EuclideanRing
@@ -41,3 +41,28 @@ test "properties for int64":
   check int64 is EuclideanRing
   check zero(int64) == 0
   check identity(int64) == 1
+
+test "properties for uint":
+  check uint is CommutativeSemiring
+  check zero(uint) == 0
+  check identity(uint) == 1
+
+test "properties for uint8":
+  check uint8 is CommutativeSemiring
+  check zero(uint8) == 0
+  check identity(uint8) == 1
+
+test "properties for uint16":
+  check uint16 is CommutativeSemiring
+  check zero(uint16) == 0
+  check identity(uint16) == 1
+
+test "properties for uint32":
+  check uint32 is CommutativeSemiring
+  check zero(uint32) == 0
+  check identity(uint32) == 1
+
+test "properties for uint64":
+  check uint64 is CommutativeSemiring
+  check zero(uint64) == 0
+  check identity(uint64) == 1
