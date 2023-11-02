@@ -17,7 +17,17 @@
 import unittest
 import again
 
-test "properties for flot":
+test "properties for float":
   check float is Field
   check zero(float) == 0
   check identity(float) == 1
+
+test "properties for float32":
+  check float32 is Field
+  check zero(float32) == 0
+  check identity(float32) == 1
+
+test "properties for float64":
+  check float64 is Field
+  check zero(float64) == 0
+  check identity(float64) == 1

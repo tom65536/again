@@ -33,12 +33,22 @@ const
     has_identity
   }
 
-proc plus_properties*(x: typedesc[float]): OperatorFlags =
+proc plus_properties*(x: typedesc[float32]): OperatorFlags =
   float_plus_properties
-proc mul_properties*(x: typedesc[float]): OperatorFlags =
+proc mul_properties*(x: typedesc[float32]): OperatorFlags =
   float_mul_properties
-proc `~`*(x: float, y: float): float = y - x
-proc `\`*(x: float, y: float): float = y / x
-proc inv*(x: float): float = 1 / x
-proc zero*(x: typedesc[float]): float = 0
-proc identity*(x: typedesc[float]): float = 1
+proc `~`*(x: float32, y: float32): float32 = y - x
+proc `\`*(x: float32, y: float32): float32 = y / x
+proc inv*(x: float32): float32 = 1 / x
+proc zero*(x: typedesc[float32]): float32 = 0
+proc identity*(x: typedesc[float32]): float32 = 1
+
+proc plus_properties*(x: typedesc[float64]): OperatorFlags =
+  float_plus_properties
+proc mul_properties*(x: typedesc[float64]): OperatorFlags =
+  float_mul_properties
+proc `~`*(x: float64, y: float64): float64 = y - x
+proc `\`*(x: float64, y: float64): float64 = y / x
+proc inv*(x: float64): float64 = 1 / x
+proc zero*(x: typedesc[float64]): float64 = 0
+proc identity*(x: typedesc[float64]): float64 = 1
