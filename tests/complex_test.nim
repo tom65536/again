@@ -13,13 +13,17 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-## AGAIN - Algebra and Group theory Algorithms In Nim
-import again/[
-  std_complex,
-  std_float,
-  std_int,
-  storage,
-  structure
-]
 
-export std_complex, std_float, std_int, structure, storage
+import complex
+import unittest
+import again
+
+test "properties for Complex32":
+  check Complex32 is Field
+  check zero(Complex32) == complex(0f32, 0f32)
+  check identity(Complex32) == complex(1f32, 0f32)
+
+test "properties for Complex64":
+  check Complex64 is Field
+  check zero(Complex64) == complex(0f64, 0f64)
+  check identity(Complex64) == complex(1f64, 0f64)
