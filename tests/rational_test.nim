@@ -13,19 +13,11 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-## AGAIN - Algebra and Group theory Algorithms In Nim
-import again/[
-  std_complex,
-  std_float,
-  std_int,
-  std_rational,
-  storage,
-  structure
-]
+import std/rationals
+import unittest
+import again
 
-export std_complex,
-  std_float,
-  std_int,
-  std_rational,
-  structure,
-  storage
+test "properties for rational":
+  check Rational[int] is Field
+  check zero(Rational[int]) == 0//1
+  check identity(Rational[int]) == 1//1
